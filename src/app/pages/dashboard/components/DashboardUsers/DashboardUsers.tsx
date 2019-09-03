@@ -3,7 +3,7 @@ import { DashboardSection } from '../DashboardSection/DashboardSection';
 import { Table, IColumn } from '../../../../shared/components/Table/Table';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
-import { dashboardGetUsers, dashboardGetData } from '../../Dashboard.actions';
+import { dashboardGetUsers, dashboardGetData, dashboardDeleteUser } from '../../Dashboard.actions';
 import { IUser } from '../../../../shared/model/user.model';
 import { IPost } from '../../../../shared/model/post.model';
 import { IAlbum } from '../../../../shared/model/album.mode';
@@ -15,6 +15,7 @@ import { IPhoto } from '../../../../shared/model/photo.model';
 export interface IDashboardUsersDispatch {
 	dashboardGetUsers: () => void;
 	dashboardGetData: () => void;
+	dashboardDeleteUsers: (userId: number) => void;
 }
 
 export interface IDashboardUsersProps {
@@ -48,10 +49,18 @@ export class DashboardUsersWrapper extends Component<IDashboardUsers> {
 		this.props.dashboardGetData();
 	}
 
+	deleteUser(record: any) {
+		this.props.dashboardDeleteUsers(record.id);
+	}
+
 	render() {
 		return (
 			<DashboardSection title='Users'>
-				<Table columns={this.getColumns()} dataSource={this.props.users} loading={this.props.loading} />
+				<Table
+					columns={this.getColumns()}
+					dataSource={this.props.users}
+					loading={this.props.loading}
+					actions={[ (record: any) => <a onClick={this.deleteUser.bind(this, record)}>delete</a> ]} />
 			</DashboardSection>
 		)
 	}
@@ -68,6 +77,9 @@ const mapStateToProps = (state: any) => {
 const mapDispatchToProps = (dispatch: Dispatch) => ({
 	dashboardGetUsers() {
 		dispatch(dashboardGetUsers());
+	},
+	dashboardDeleteUsers(userId: number) {
+		dispatch(dashboardDeleteUser(userId));
 	},
 	dashboardGetData() {
 		dispatch(dashboardGetData());

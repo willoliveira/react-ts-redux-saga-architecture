@@ -1,4 +1,4 @@
-import { DASHBOARD_GET_USERS, DASHBOARD_GET_USERS_SUCCESS, DASHBOARD_GET_USERS_ERROR, DASHBOARD_GET_DATA, DASHBOARD_GET_DATA_SUCCESS, DASHBOARD_GET_DATA_ERROR } from "./Dashboard.actions";
+import { DASHBOARD_GET_USERS, DASHBOARD_GET_USERS_SUCCESS, DASHBOARD_GET_USERS_ERROR, DASHBOARD_GET_DATA, DASHBOARD_GET_DATA_SUCCESS, DASHBOARD_GET_DATA_ERROR, DASHBOARD_ADD_USER, DASHBOARD_DELETE_USER } from "./Dashboard.actions";
 
 const initialState = {
 	error: false,
@@ -48,6 +48,16 @@ export function DashboardReducer(state: any = initialState, action: any) {
 				photos: [ ],
 				error: true,
 				loading: false
+			}
+		case DASHBOARD_ADD_USER:
+			return {
+				...state,
+				users: [...state.users, state.user]
+			}
+		case DASHBOARD_DELETE_USER:
+			return {
+				...state,
+				users: state.users.filter((user: any) => user.id !== action.payload)
 			}
 		default:
 			return state;
