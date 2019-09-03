@@ -1,3 +1,12 @@
-import { createStore, combineReducers } from 'redux'
+import { createStore, combineReducers, applyMiddleware } from 'redux'
+import { DashboardReducer } from './pages/dashboard/Dashboard.reducer';
+import createSagaMiddleware from '@redux-saga/core';
+import { rootSagas } from './sagas';
 
-export const store = createStore(combineReducers({ }));
+const sagaMiddleware = createSagaMiddleware();
+
+export const store = createStore(combineReducers({
+	DashboardReducer
+}), applyMiddleware(sagaMiddleware));
+
+sagaMiddleware.run(rootSagas);

@@ -9,7 +9,8 @@ export interface IColumn {
 
 export interface ITable {
 	columns: IColumn[];
-	dataSource: any[]
+	dataSource: any[];
+	loading: boolean;
 }
 
 export class Table extends Component<ITable> {
@@ -36,13 +37,20 @@ export class Table extends Component<ITable> {
 	}
 
 	render() {
+		const { dataSource, loading } = this.props;
+
+		if (!dataSource && !loading) {
+			return (
+				<div>No data!</div>
+			);
+		}
 		return (
 			<table>
 				<thead>
 					<tr>
 						{
 							this.props.columns.map((column: IColumn) => (
-								<th>{column.name}</th>
+								<th key={`header-${column.key}`}>{column.name}</th>
 							))
 						}
 					</tr>
@@ -53,7 +61,7 @@ export class Table extends Component<ITable> {
 							<tr key={data.index}>
 								{
 									this.props.columns.map((column: IColumn, index) => (
-										<td key={column.key}>{this.renderDataSource(data, column, index)}</td>
+										<td key={`content-${column.key}`}>{this.renderDataSource(data, column, index)}</td>
 									))
 								}
 							</tr>

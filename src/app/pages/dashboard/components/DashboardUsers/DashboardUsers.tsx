@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { DashboardSection } from '../DashboardSection/DashboardSection';
 import { Table, IColumn } from '../../../../shared/components/Table/Table';
+import { connect } from 'react-redux';
+import { Dispatch } from 'redux';
+import { dashboardGetUsers } from '../../Dashboard.actions';
 
 const columns: IColumn[] = [
 	{ name: 'Username', dataIndex: 'username', key: 'username' },
@@ -14,62 +17,45 @@ const columns: IColumn[] = [
 	{ name: 'Photos', render: (record, index) => 1, key: 'photos' },
 ]
 
-const dataSource = [
-	{
-		id: 1,
-		name: "Leanne Graham",
-		username: "Bret",
-		email: "Sincere@april.biz",
-		address: {
-			street: "Kulas Light",
-			suite: "Apt. 556",
-			city: "Gwenborough",
-			zipcode: "92998-3874",
-			geo: {
-				lat: "-37.3159",
-				lng: "81.1496"
-			}
-		},
-		phone: "1-770-736-8031 x56442",
-		website: "hildegard.org",
-		company: {
-			name: "Romaguera-Crona",
-			catchPhrase: "Multi-layered client-server neural-net",
-			bs: "harness real-time e-markets"
-		}
-	},
-	{
-		id: 2,
-		name: "Ervin Howell",
-		username: "Antonette",
-		email: "Shanna@melissa.tv",
-		address: {
-			street: "Victor Plains",
-			suite: "Suite 879",
-			city: "Wisokyburgh",
-			zipcode: "90566-7771",
-			geo: {
-				lat: "-43.9509",
-				lng: "-34.4618"
-			}
-		},
-		phone: "010-692-6593 x09125",
-		website: "anastasia.net",
-		company: {
-			name: "Deckow-Crist",
-			catchPhrase: "Proactive didactic contingency",
-			bs: "synergize scalable supply-chains"
-		}
-	},
-]
+export interface IDashboardUsersDispatch {
+	dashboardGetUsers: () => void;
+}
 
-export class DashboardUsers extends Component {
+export interface IDashboardUsersProps {
+	error: boolean;
+	loading: boolean;
+	users: any[];
+}
+
+export type IDashboardUsers = IDashboardUsersDispatch & IDashboardUsersProps;
+
+export class DashboardUsersWrapper extends Component<IDashboardUsers> {
+
+	componentDidMount() {
+		this.props.dashboardGetUsers();
+	}
 
 	render() {
 		return (
 			<DashboardSection title='Users'>
-				<Table columns={columns} dataSource={dataSource} />
+				<Table columns={columns} dataSource={this.props.users} loading={this.props.loading} />
 			</DashboardSection>
-			)
-		}
+		)
 	}
+}
+
+const mapStateToProps = (state: any) => {
+	const { DashboardReducer } = state;
+	const { error, users, loading } = DashboardReducer;
+	return {
+		error, users, loading
+	}
+};
+
+const mapDispatchToProps = (dispatch: Dispatch) => ({
+	dashboardGetUsers() {
+		dispatch(dashboardGetUsers());
+	}
+});
+
+export const DashboardUsers = connect(mapStateToProps, mapDispatchToProps)(DashboardUsersWrapper)
