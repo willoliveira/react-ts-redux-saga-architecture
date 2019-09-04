@@ -29,13 +29,18 @@ export const DASHBOARD_GET_DATA = 'DASHBOARD_GET_DATA';
 export const DASHBOARD_GET_DATA_SUCCESS = 'DASHBOARD_GET_DATA_SUCCESS';
 export const DASHBOARD_GET_DATA_ERROR = 'DASHBOARD_GET_DATA_ERROR';
 
+export const DASHBOARD_UDPATE_USER_FORM = 'DASHBOARD_UDPATE_USER_FORM';
+export const DASHBOARD_CLEAR_USER_FORM = 'DASHBOARD_CLEAR_USER_FORM';
+
 export const dashboardGetUsers = () => action(DASHBOARD_GET_USERS);
 export const dashboardGetPosts= () => action(DASHBOARD_GET_POSTS);
 export const dashboardGetAlbums = () => action(DASHBOARD_GET_ALBUMS);
 export const dashboardGetPhotos = () => action(DASHBOARD_GET_PHOTOS);
 
 export const dashboardDeleteUser = (userId: number) => action(DASHBOARD_DELETE_USER, userId);
-export const dashboardAddUser = (user: IUser) => action(DASHBOARD_ADD_USER);
+export const dashboardAddUser = (user: IUser) => action(DASHBOARD_ADD_USER, user);
 
 export const dashboardGetData = () => action(DASHBOARD_GET_DATA);
 
+export const dashboardUpdateUserForm = (formData: any) => action(DASHBOARD_UDPATE_USER_FORM, formData);
+export const dashboardClearUserForm = () => action(DASHBOARD_CLEAR_USER_FORM);

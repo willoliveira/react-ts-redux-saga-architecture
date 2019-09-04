@@ -1,8 +1,9 @@
-import { DASHBOARD_GET_USERS, DASHBOARD_GET_USERS_SUCCESS, DASHBOARD_GET_USERS_ERROR, DASHBOARD_GET_DATA, DASHBOARD_GET_DATA_SUCCESS, DASHBOARD_GET_DATA_ERROR, DASHBOARD_ADD_USER, DASHBOARD_DELETE_USER } from "./Dashboard.actions";
+import { DASHBOARD_GET_USERS, DASHBOARD_GET_USERS_SUCCESS, DASHBOARD_GET_USERS_ERROR, DASHBOARD_GET_DATA, DASHBOARD_GET_DATA_SUCCESS, DASHBOARD_GET_DATA_ERROR, DASHBOARD_ADD_USER, DASHBOARD_DELETE_USER, DASHBOARD_CLEAR_USER_FORM, DASHBOARD_UDPATE_USER_FORM } from "./Dashboard.actions";
 
 const initialState = {
 	error: false,
-	users: [ ]
+	users: [ ],
+	formData: { }
 }
 
 export function DashboardReducer(state: any = initialState, action: any) {
@@ -52,12 +53,25 @@ export function DashboardReducer(state: any = initialState, action: any) {
 		case DASHBOARD_ADD_USER:
 			return {
 				...state,
-				users: [...state.users, state.user]
+				users: [...state.users, action.payload]
 			}
 		case DASHBOARD_DELETE_USER:
 			return {
 				...state,
 				users: state.users.filter((user: any) => user.id !== action.payload)
+			}
+		case DASHBOARD_UDPATE_USER_FORM:
+			return {
+				...state,
+				formData: {
+					...state.formData,
+					...action.payload
+				}
+			}
+		case DASHBOARD_CLEAR_USER_FORM:
+			return {
+				...state,
+				formData: { }
 			}
 		default:
 			return state;
