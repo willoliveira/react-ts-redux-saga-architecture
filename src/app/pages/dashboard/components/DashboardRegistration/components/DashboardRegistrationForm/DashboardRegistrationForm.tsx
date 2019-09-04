@@ -54,6 +54,10 @@ export class DashboardRegistrationFormWrapper extends Component<IDashboardRegist
 		return this.props.formData[name] && this.props.formData[name].length ? this.props.formData[name].indexOf(value) > -1 : false;
 	}
 
+	isRadioChecked(name: string, value: string) {
+		return this.props.formData[name] === value;
+	}
+
 	onSubmit(event: React.FormEvent<HTMLFormElement>) {
 		event.preventDefault();
 
@@ -102,15 +106,15 @@ export class DashboardRegistrationFormWrapper extends Component<IDashboardRegist
 					<div className='form-group'>
 						<label htmlFor="name">Ride in group?</label>
 						<label>
-							<input onChange={this.onChange} type="radio" name="rideInGroup" id="rideInGroup" value="always" checked={this.getValue('always')} />
+							<input onChange={this.onChange} type="radio" name="rideInGroup" id="rideInGroup" value="always" checked={this.isRadioChecked('rideInGroup', 'always')} />
 							Always
 						</label>
 						<label>
-							<input onChange={this.onChange} type="radio" name="rideInGroup" id="rideInGroup" value="sometimes" checked={this.getValue('sometimes')} />
+							<input onChange={this.onChange} type="radio" name="rideInGroup" id="rideInGroup" value="sometimes" checked={this.isRadioChecked('rideInGroup','sometimes')} />
 							Sometimes
 						</label>
 						<label>
-							<input onChange={this.onChange} type="radio" name="rideInGroup" id="rideInGroup" value="never" checked={this.getValue('never')} />
+							<input onChange={this.onChange} type="radio" name="rideInGroup" id="rideInGroup" value="never" checked={this.isRadioChecked('rideInGroup','never')} />
 							Never
 						</label>
 					</div>
