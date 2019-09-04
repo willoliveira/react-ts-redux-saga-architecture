@@ -83,24 +83,24 @@ export class DashboardRegistrationFormWrapper extends Component<IDashboardRegist
 				<div>
 					<div className='form-group'>
 						<label htmlFor="username">Username</label>
-						<input onChange={this.onChange} type="text" name="username" id="username" value={this.getValue('username')} />
+						<input onChange={this.onChange} type="text" name="username" id="username" value={this.getValue('username')} required />
 						<p>Instructions to show on input focus.</p>
 					</div>
 					<div className='form-group'>
 						<label htmlFor="name">Name</label>
-						<input onChange={this.onChange} type="text" name="name" id="name" value={this.getValue('name')} />
+						<input onChange={this.onChange} type="text" name="name" id="name" value={this.getValue('name')} required />
 						<p>Instructions to show on input focus.</p>
 					</div>
 					<div className='form-group'>
 						<label htmlFor="email">E-mail</label>
-						<input onChange={this.onChange} type="text" name="email" id="email" value={this.getValue('email')}/>
+						<input onChange={this.onChange} type="text" name="email" id="email" value={this.getValue('email')} required />
 						<p>Instructions to show on input focus.</p>
 					</div>
 				</div>
 				<div>
 					<div className='form-group'>
 						<label htmlFor="city">City</label>
-						<input onChange={this.onChange} type="text" name="city" id="city" value={this.getValue('city')}/>
+						<input onChange={this.onChange} type="text" name="city" id="city" value={this.getValue('city')} required />
 						<p>Instructions to show on input focus.</p>
 					</div>
 					<div className='form-group'>
