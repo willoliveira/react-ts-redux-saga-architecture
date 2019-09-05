@@ -2,14 +2,15 @@ import React, { FC } from 'react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLifeRing, faHeartbeat, faSmile } from '@fortawesome/free-solid-svg-icons'
+import './DashboardRegistrationHeader.scss';
 
 export const DashboardRegistrationHeader: FC = () => (
-	<ul>
+	<ul className="DashboardRegistrationHeader">
 		<li>
-			<p>Need help?</p>
-			<div>
-				<FontAwesomeIcon icon={faLifeRing} />
-				<div>
+			<p className="title">Need help?</p>
+			<div className="content">
+				<FontAwesomeIcon className="fa" icon={faLifeRing} />
+				<div className="text">
 					<p>Lorem ipsum dolor sit amet, consectetur</p>
 					<p>adipisicing elit, sed do eiusmod tempor</p>
 					<p>incididunt ut labore et dolore magna aliqua.</p>
@@ -17,10 +18,10 @@ export const DashboardRegistrationHeader: FC = () => (
 			</div>
 		</li>
 		<li>
-			<p>Why register?</p>
-			<div>
-				<FontAwesomeIcon icon={faHeartbeat} />
-				<div>
+			<p className="title">Why register?</p>
+			<div className="content">
+				<FontAwesomeIcon className="fa" icon={faHeartbeat} />
+				<div className="text">
 					<p>Lorem ipsum dolor sit amet, consectetur</p>
 					<p>adipisicing elit, sed do eiusmod tempor</p>
 					<p>incididunt ut labore et dolore magna aliqua.</p>
@@ -28,10 +29,10 @@ export const DashboardRegistrationHeader: FC = () => (
 			</div>
 		</li>
 		<li>
-			<p>What people are saying...</p>
-			<div>
-				<FontAwesomeIcon icon={faSmile} />
-				<div>
+			<p className="title">What people are saying...</p>
+			<div className="content">
+				<FontAwesomeIcon className="fa" icon={faSmile} />
+				<div className="text">
 					<p>Lorem ipsum dolor sit amet, consectetur</p>
 					<p>adipisicing elit, sed do eiusmod tempor</p>
 					<p>incididunt ut labore et dolore magna aliqua.</p>

@@ -14,6 +14,6 @@ describe('<Header>', () => {
 
 	it('Render name company', () => {
 		const wrapper = render(<Header />);
-		expect(wrapper.find('.header-logo__name').text()).to.equal('Venturus Sports');
+		expect(wrapper.find('.header-logo__name').text()).to.equal('Sports');
 	});
 })

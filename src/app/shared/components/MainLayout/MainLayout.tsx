@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { Header } from '../Header/Header';
 import { Breadcrumb } from '../Breadcrumb/Breadcrumb';
-
+import './MainLayout.scss';
 
 const BreadcrumbItems = [
 	'Home',
@@ -12,7 +12,7 @@ const BreadcrumbItems = [
 
 
 export const MainLayout: FC = ({ children }) => (
-	<section>
+	<section className='MainLayout'>
 		<Header />
 		<Breadcrumb
 			items={BreadcrumbItems}

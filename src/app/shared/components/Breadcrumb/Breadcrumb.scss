@@ -1,0 +1,32 @@
+.breadcrumb-container {
+
+	background-color: #F9F9F9;
+
+	.breadcrumb {
+		margin: 10px 0;
+		list-style: none;
+		padding: 0;
+
+		&-item {
+			display: inline;
+
+			&__text {
+				color: #1ABC9C;
+			}
+
+			a {
+				text-decoration: none;
+			}
+
+			.caret {
+				margin: 0 12px;
+			}
+		}
+
+		&-item:last-child {
+			.breadcrumb-item__text {
+				color: #000;
+			}
+		}
+	}
+}

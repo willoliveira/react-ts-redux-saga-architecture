@@ -7,7 +7,7 @@ export class Dashboard extends Component {
 
 	render() {
 		return (
-			<section>
+			<section className="Dashboard">
 				<DashboardHeader />
 				<DashboardUsers />
 				<DashboardRegistration />

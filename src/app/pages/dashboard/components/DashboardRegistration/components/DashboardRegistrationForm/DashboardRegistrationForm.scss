@@ -1,0 +1,74 @@
+.DashboardRegistrationForm {
+
+	&__separator {
+		width: 80%;
+		margin: 32px auto;
+	}
+
+	.form {
+		width: 80%;
+		margin: 0 auto;
+
+
+		.group {
+			display: flex;
+			flex-direction: row;
+
+			.form-group {
+				flex: 1;
+
+				.form-input-group {
+					height: 80px;
+
+					.checkbox-group div {
+						width: 50px;
+					}
+
+					.checkbox-group, .radio-group {
+						display: flex;
+						flex-direction: row;
+						justify-content: space-between;
+
+						label {
+							line-height: 20px;
+							cursor: pointer;
+						}
+
+						input {
+							display: inline-block;
+							margin-right: 4px;
+
+							&:checked {
+								outline: #3AC5A9 auto 1px;
+							}
+						}
+					}
+
+					label, input, p {
+						display: block;
+					}
+
+					input {
+						&[type=text] {
+							width: 80%;
+						}
+						margin: 4px 0;
+
+						&:focus {
+							outline: #3AC5A9 auto 1px;
+
+							& + p {
+								display: initial;
+							}
+						}
+					}
+
+					p {
+						display: none;
+						opacity: .7;
+					}
+				}
+			}
+		}
+	}
+}

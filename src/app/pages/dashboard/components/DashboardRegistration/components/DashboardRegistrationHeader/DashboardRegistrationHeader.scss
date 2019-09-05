@@ -1,0 +1,34 @@
+.DashboardRegistrationHeader {
+	li {
+		list-style: none;
+		display: inline-block;
+
+	}
+
+	.title, .fa {
+		color: #3AC5A9;
+	}
+
+	.title {
+		font-size: 18px;
+	}
+
+	.content {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+
+		.fa {
+			display: inline-block;
+			width: 60px;
+			height: 60px;
+		}
+		.text {
+			display: inline-block !important;
+
+			p {
+				margin: 4px 12px;
+			}
+		}
+	}
+}

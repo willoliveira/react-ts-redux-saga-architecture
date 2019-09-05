@@ -50,7 +50,7 @@ export class Table extends Component<ITable> {
 			);
 		}
 		return (
-			<table>
+			<table className="table">
 				<thead>
 					<tr>
 						{
@@ -60,7 +60,7 @@ export class Table extends Component<ITable> {
 						}
 						{
 							this.props.actions.length
-								? <th></th>
+								? <th className="action"></th>
 								: null
 						}
 					</tr>
@@ -76,7 +76,7 @@ export class Table extends Component<ITable> {
 								}
 								{
 									this.props.actions.length
-										? <td>{this.renderActions(data, index)}</td>
+										? <td className="action">{this.renderActions(data, index)}</td>
 										: null
 								}
 							</tr>

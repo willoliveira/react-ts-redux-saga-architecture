@@ -13,9 +13,9 @@ export interface IBreadcrumbItem {
 export const BreadcrumbItem: FC<IBreadcrumbItem> = (props: IBreadcrumbItem) => (
 	<li className='breadcrumb-item'>
 		<a href="#">
-			{RenderHomeIcon(props)}
-			{RenderCaret(props)}
+			<span className="breadcrumb-item__text">{RenderHomeIcon(props)}</span>
 		</a>
+		{RenderCaret(props)}
 	</li>
 )
 
@@ -27,6 +27,6 @@ const RenderHomeIcon = ({ index, homeIcon, title }: IBreadcrumbItem) => (
 
 const RenderCaret = ({ index, length }: IBreadcrumbItem) => (
 	index + 1 < length
-		? <FontAwesomeIcon icon={faChevronRight} />
+		? <FontAwesomeIcon className="caret" icon={faChevronRight} />
 		: null
 )

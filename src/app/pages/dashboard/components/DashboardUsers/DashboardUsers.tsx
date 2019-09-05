@@ -12,6 +12,11 @@ import { DashboardUsersTableAlbum } from './components/DashboardUsersTableAlbums
 import { DashboardUsersTablePhotos } from './components/DashboardUsersTablePhotos/DashboardUsersTablePhotos';
 import { IPhoto } from '../../../../shared/model/photo.model';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTrash } from '@fortawesome/free-solid-svg-icons'
+
+import './DasboardUsers.scss';
+
 export interface IDashboardUsersDispatch {
 	dashboardGetUsers: () => void;
 	dashboardGetData: () => void;
@@ -55,12 +60,12 @@ export class DashboardUsersWrapper extends Component<IDashboardUsers> {
 
 	render() {
 		return (
-			<DashboardSection title='Users'>
+			<DashboardSection className="DasboardUsers" title='Users'>
 				<Table
 					columns={this.getColumns()}
 					dataSource={this.props.users}
 					loading={this.props.loading}
-					actions={[ (record: any) => <a onClick={this.deleteUser.bind(this, record)}>delete</a> ]} />
+					actions={[ (record: any) => <a onClick={this.deleteUser.bind(this, record)}><FontAwesomeIcon icon={faTrash} /></a> ]} />
 			</DashboardSection>
 		)
 	}

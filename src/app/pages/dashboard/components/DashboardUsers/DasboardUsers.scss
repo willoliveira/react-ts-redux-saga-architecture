@@ -1,0 +1,35 @@
+.DasboardUsers {
+
+	.table {
+		width: 100%;
+
+		td, th {
+			padding: 8px 2px;
+			border-collapse: collapse;
+			text-align: left;
+		}
+
+		th.action  {
+			width: 30px;
+		}
+
+		tbody tr {
+
+			&:nth-child(2n) {
+				background-color: #F8F8F8;
+			}
+
+			&:hover {
+				background-color: #E3E3E3;
+				.action {
+					display: initial;
+				}
+			}
+
+			td.action {
+				display: none;
+				text-align: center;
+			}
+		}
+	}
+}

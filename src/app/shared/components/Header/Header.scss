@@ -1,0 +1,61 @@
+.header {
+	height: 80px;
+	width: 100%;
+
+	align-items: center;
+	display: flex;
+	flex-direction: row;
+
+	.MainLayout__fluid-layout {
+		display: flex;
+		align-items: center;
+		position: relative
+	}
+
+	&-logo {
+		display: flex;
+		flex-direction: row;
+		&__icon {
+			height: 38px;
+			width: 38px;
+			border-radius: 4px;
+			color: #FFF;
+			background-color: #1ABC9C;
+			margin-right: 8px;
+
+			.fa {
+				height: 38px;
+				width: 24px;
+				padding-left: 7px;
+			}
+		}
+		&__name {
+			align-content: center;
+			line-height: 38px;
+			font-size: 24px;
+			font-weight: bold;
+		}
+	}
+
+	&-user {
+		line-height: 30px;
+		float: right;
+		position: absolute;
+		right: 0;
+
+		&__initials {
+			display: inline-block;
+			height: 30px;
+			width: 30px;
+			text-align: center;
+			border: 1px solid #000;
+			border-radius: 20px;
+			text-transform: uppercase;
+		}
+
+		&__name {
+			margin: 0 8px;
+			display: inline-block;
+		}
+	}
+}
