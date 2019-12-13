@@ -38,7 +38,7 @@
 		"enzyme-adapter-react-16": "^1.14.0",
 		"install": "^0.13.0",
 		"node-sass": "^4.12.0",
-		"npm": "^6.11.2"
+		"npm": "^6.13.4"
 	},
 	"scripts": {
 		"start": "react-scripts start",
